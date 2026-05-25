@@ -1,0 +1,61 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Support My Work — Crypto Donations</title>
+    <meta
+      name="description"
+      content="Full-stack developer with 6+ years in Backend, Frontend, Linux, Technical Writing and SEO. Support my work with a crypto donation."
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div class="bg-orbs" aria-hidden="true"></div>
+
+    <div class="page">
+      <header class="hero">
+        <div class="avatar" aria-hidden="true">👨‍💻</div>
+        <h1>Support My Work</h1>
+        <p>
+          I'm a full-stack developer with 6+ years of experience building things on the back-end and front-end, working
+          with Linux, and writing technical content. If my work has been useful to you, a crypto donation goes a long
+          way — thank you.
+        </p>
+        <div class="tags">
+          <span class="tag">Backend</span>
+          <span class="tag">Frontend</span>
+          <span class="tag">Linux</span>
+          <span class="tag">Technical Writing</span>
+          <span class="tag">SEO</span>
+          <span class="tag">6+ years</span>
+        </div>
+      </header>
+
+      <section aria-label="Donation addresses">
+        <p class="section-title">Crypto wallets</p>
+        <div class="wallets" id="wallets"></div>
+      </section>
+
+      <footer>
+        <p>Every donation, big or small, is genuinely appreciated.</p>
+        <p style="margin-top: 8px">Transactions are irreversible — please double-check the address before sending.</p>
+      </footer>
+    </div>
+
+    <div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"
+      integrity="sha512-CNgIRecGo7nphbeZ04Sc13ka07paqdeTu0WR1IM4kNcpmBAUSHSe2FDzAzNhj+7k4xC/8aMRSAkGQKq1hHBcg=="
+      crossorigin="anonymous"
+    ></script>
+    <script src="scripts.js"></script>
+  </body>
+</html>
