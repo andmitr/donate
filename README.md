@@ -1,52 +1,21 @@
-# donate
+# Donate
 
-Personal donation landing page for Andrew Dmitriev. A single static page that lists crypto wallet addresses and lets visitors copy them with one click.
+Personal donation landing page. Static HTML/CSS/JS. Deployed to GitHub Pages.
 
-Live: https://andmitr.github.io/donate/
+[![License](https://img.shields.io/badge/License-MIT-blue.svg?style=flat-square&logo=opensource)](LICENSE)
 
-## Stack
+## Features
 
 - Plain HTML, CSS, and vanilla JavaScript (no framework, no build step)
 - Self-hosted `sf` and `JetBrains Mono` web fonts (woff2)
 - Deployed to GitHub Pages
 
-## Project layout
+## Preview
 
-```
-.
-├── index.html               # Page markup
-├── styles.css               # All styles (reset, tokens, layout, components)
-├── scripts.js               # Copy-to-clipboard + toast
-├── avatar.png               # Hero avatar
-├── fonts/                   # Self-hosted woff2 fonts
-└── .github/workflows/       # Release workflow
-```
+Live: https://andmitr.github.io/donate/
 
-## Local preview
-
-```sh
-python3 -m http.server 8000
-```
-
-Open `http://localhost:8000`.
-
-## Deployment
-
-GitHub Pages is configured to deploy directly from the `main` branch (Settings -> Pages -> Source: Deploy from a branch). Every push to `main` is published to https://andmitr.github.io/donate/ automatically.
-
-## CI
-
-- `.github/workflows/release.yml` - publishes a GitHub Release with auto-generated notes on every `v*` tag push.
-
-## Release
-
-```sh
-git tag v1.2.3
-git push origin v1.2.3
-```
-
-The release workflow picks up the tag and creates a GitHub Release.
+![Screenshot](screenshot.png)
 
 ## License
 
-All rights reserved.
+MIT Licensed. See [LICENSE](LICENSE) for details.
