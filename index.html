@@ -3,16 +3,10 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Support My Work — Crypto Donations</title>
+    <title>Andrew Dmitriev — Support My Work</title>
     <meta
       name="description"
-      content="Full-stack developer with 6+ years in Backend, Frontend, Linux, Technical Writing and SEO. Support my work with a crypto donation."
-    />
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap"
-      rel="stylesheet"
+      content="Software Engineer with 6+ years of experience in Backend, Frontend, Linux, Technical writing, and SEO. Support my work with a crypto donation."
     />
     <link rel="stylesheet" href="styles.css" />
   </head>
@@ -21,41 +15,151 @@
 
     <div class="page">
       <header class="hero">
-        <div class="avatar" aria-hidden="true">👨‍💻</div>
-        <h1>Support My Work</h1>
-        <p>
-          I'm a full-stack developer with 6+ years of experience building things on the back-end and front-end, working
-          with Linux, and writing technical content. If my work has been useful to you, a crypto donation goes a long
-          way — thank you.
-        </p>
+        <div class="avatar">
+          <img src="avatar.png" width="150" height="150" alt="Andrew Dmitriev" />
+        </div>
+        <h1>Andrew Dmitriev</h1>
+        <p class="subtitle">Software Engineer&nbsp;|&nbsp;Solopreneur</p>
+        <p>Software Engineer with 6+ years of experience in Backend, Frontend, Linux, Technical writing, and SEO.</p>
         <div class="tags">
           <span class="tag">Backend</span>
           <span class="tag">Frontend</span>
           <span class="tag">Linux</span>
           <span class="tag">Technical Writing</span>
           <span class="tag">SEO</span>
-          <span class="tag">6+ years</span>
         </div>
       </header>
 
       <section aria-label="Donation addresses">
+        <h2 class="section-heading">Support My Work</h2>
         <p class="section-title">Crypto wallets</p>
-        <div class="wallets" id="wallets"></div>
+
+        <div class="wallets">
+          <article class="wallet-card btc">
+            <div class="wallet-header">
+              <div class="coin-icon" aria-hidden="true">₿</div>
+              <div>
+                <div class="coin-name">BTC</div>
+                <div class="coin-sub">Bitcoin</div>
+              </div>
+              <span class="wallet-network">Bitcoin</span>
+            </div>
+            <div class="address-row">
+              <span class="address-text">1CCnwAvJYEoDVGM7vsBg2Q99cF9EHtBVaY</span>
+              <button class="copy-btn" aria-label="Copy BTC address">
+                <svg
+                  width="15"
+                  height="15"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                >
+                  <rect x="9" y="9" width="13" height="13" rx="2" ry="2" />
+                  <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1" />
+                </svg>
+              </button>
+            </div>
+          </article>
+
+          <article class="wallet-card eth">
+            <div class="wallet-header">
+              <div class="coin-icon" aria-hidden="true">Ξ</div>
+              <div>
+                <div class="coin-name">ETH</div>
+                <div class="coin-sub">Ethereum</div>
+              </div>
+              <span class="wallet-network">ERC-20</span>
+            </div>
+            <div class="address-row">
+              <span class="address-text">0x54f0ccc6b2987de454f69f2814fc9202bcfb74fe</span>
+              <button class="copy-btn" aria-label="Copy ETH address">
+                <svg
+                  width="15"
+                  height="15"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                >
+                  <rect x="9" y="9" width="13" height="13" rx="2" ry="2" />
+                  <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1" />
+                </svg>
+              </button>
+            </div>
+          </article>
+
+          <article class="wallet-card usdt">
+            <div class="wallet-header">
+              <div class="coin-icon" aria-hidden="true">₮</div>
+              <div>
+                <div class="coin-name">USDT</div>
+                <div class="coin-sub">Tether</div>
+              </div>
+              <span class="wallet-network">TRC-20</span>
+            </div>
+            <div class="address-row">
+              <span class="address-text">0x54f0ccc6b2987de454f69f2814fc9202bcfb74fe</span>
+              <button class="copy-btn" aria-label="Copy USDT address">
+                <svg
+                  width="15"
+                  height="15"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                >
+                  <rect x="9" y="9" width="13" height="13" rx="2" ry="2" />
+                  <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1" />
+                </svg>
+              </button>
+            </div>
+          </article>
+
+          <article class="wallet-card usdc">
+            <div class="wallet-header">
+              <div class="coin-icon" aria-hidden="true">$</div>
+              <div>
+                <div class="coin-name">USDC</div>
+                <div class="coin-sub">USD Coin</div>
+              </div>
+              <span class="wallet-network">ERC-20</span>
+            </div>
+            <div class="address-row">
+              <span class="address-text">0x54f0ccc6b2987de454f69f2814fc9202bcfb74fe</span>
+              <button class="copy-btn" aria-label="Copy USDC address">
+                <svg
+                  width="15"
+                  height="15"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                >
+                  <rect x="9" y="9" width="13" height="13" rx="2" ry="2" />
+                  <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1" />
+                </svg>
+              </button>
+            </div>
+          </article>
+        </div>
       </section>
 
       <footer>
-        <p>Every donation, big or small, is genuinely appreciated.</p>
-        <p style="margin-top: 8px">Transactions are irreversible — please double-check the address before sending.</p>
+        <p>Transactions are irreversible, please double-check the address before sending.</p>
       </footer>
     </div>
 
     <div class="toast" id="toast" role="status" aria-live="polite"></div>
 
-    <script
-      src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"
-      integrity="sha512-CNgIRecGo7nphbeZ04Sc13ka07paqdeTu0WR1IM4kNcpmBAUSHSe2FDzAzNhj+7k4xC/8aMRSAkGQKq1hHBcg=="
-      crossorigin="anonymous"
-    ></script>
     <script src="scripts.js"></script>
   </body>
 </html>

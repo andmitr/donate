@@ -1,269 +1,441 @@
-*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-
-:root {
-  --bg:           #0a0a0f;
-  --surface:      #12121a;
-  --glass:        rgba(255,255,255,0.04);
-  --glass-border: rgba(255,255,255,0.08);
-  --accent:       #6c63ff;
-  --accent2:      #a78bfa;
-  --text:         #e2e2f0;
-  --muted:        #6b6b8a;
-  --success:      #34d399;
-  --btc:          #f7931a;
-  --eth:          #627eea;
-  --usdt:         #26a17b;
-  --usdc:         #2775ca;
+/* ── Fonts ───────────────────────────────────────────────────── */
+@font-face {
+  font-family: "Inter";
+  src: url("fonts/sf.woff2") format("woff2");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Inter";
+  src: url("fonts/sf-med.woff2") format("woff2");
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "JetBrains Mono";
+  src: url("fonts/jbm.woff2") format("woff2");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "JetBrains Mono";
+  src: url("fonts/jbm-med.woff2") format("woff2");
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
 }
 
-html { scroll-behavior: smooth; }
+/* ── Reset ───────────────────────────────────────────────────── */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+/* ── Brand tokens (design-tokens.json) ───────────────────────── */
+:root {
+  --bg-page: #0f1722;
+  --bg-surface: #1a2433;
+  --bg-elevated: #25324a;
+  --bg-code: #0b1018;
+  --text-primary: #f2f6fb;
+  --text-body: #cfe0f0;
+  --text-muted: #7a8ba3;
+  --border: #3a4a5f;
+  --primary-soft: #a8c5e0;
+  --primary-base: #4a90c2;
+  --primary-pressed: #2e5c82;
+  --accent-base: #e6522c;
+  --accent-hover: #f2855e;
+  --success: #3fb950;
+  /* crypto coin brand colors */
+  --btc: #f7931a;
+  --eth: #627eea;
+  --usdt: #26a17b;
+  --usdc: #2775ca;
+}
+
+/* ── Base ────────────────────────────────────────────────────── */
+html {
+  scroll-behavior: smooth;
+}
 
 body {
-  font-family: 'Inter', sans-serif;
-  background: var(--bg);
-  color: var(--text);
+  font-family: "Inter", sans-serif;
+  font-weight: 400;
+  background: var(--bg-page);
+  color: var(--text-body);
   min-height: 100vh;
   overflow-x: hidden;
 }
 
-/* Background orbs */
+/* ── Background orbs ─────────────────────────────────────────── */
 .bg-orbs {
-  position: fixed; inset: 0; pointer-events: none; z-index: 0;
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 0;
 }
 .bg-orbs::before,
 .bg-orbs::after {
-  content: '';
+  content: "";
   position: absolute;
   border-radius: 50%;
-  filter: blur(120px);
-  opacity: 0.12;
+  filter: blur(130px);
 }
 .bg-orbs::before {
-  width: 600px; height: 600px;
-  background: var(--accent);
-  top: -200px; left: -200px;
+  width: 600px;
+  height: 600px;
+  background: var(--primary-base);
+  opacity: 0.1;
+  top: -220px;
+  left: -180px;
   animation: drift 18s ease-in-out infinite alternate;
 }
 .bg-orbs::after {
-  width: 500px; height: 500px;
-  background: var(--accent2);
-  bottom: -150px; right: -150px;
-  animation: drift 22s ease-in-out infinite alternate-reverse;
+  width: 500px;
+  height: 500px;
+  background: var(--primary-pressed);
+  opacity: 0.12;
+  bottom: -160px;
+  right: -160px;
+  animation: drift 24s ease-in-out infinite alternate-reverse;
 }
 @keyframes drift {
-  from { transform: translate(0,0) scale(1); }
-  to   { transform: translate(60px,40px) scale(1.1); }
+  from {
+    transform: translate(0, 0) scale(1);
+  }
+  to {
+    transform: translate(60px, 40px) scale(1.1);
+  }
 }
 
-/* Layout */
+/* ── Layout ──────────────────────────────────────────────────── */
 .page {
-  position: relative; z-index: 1;
+  position: relative;
+  z-index: 1;
   max-width: 720px;
   margin: 0 auto;
   padding: 64px 24px 96px;
 }
 
-/* Hero */
-.hero { text-align: center; margin-bottom: 56px; }
+/* ── Hero ────────────────────────────────────────────────────── */
+.hero {
+  text-align: center;
+  margin-bottom: 24px;
+}
 
 .avatar {
-  width: 80px; height: 80px;
+  width: 150px;
+  height: 150px;
   border-radius: 50%;
-  background: linear-gradient(135deg, var(--accent), var(--accent2));
-  display: flex; align-items: center; justify-content: center;
-  font-size: 32px;
-  margin: 0 auto 24px;
-  box-shadow: 0 0 40px rgba(108,99,255,0.35);
+  overflow: hidden;
+  margin: 0 auto 8px;
+  border: 2px solid var(--border);
+  box-shadow:
+    0 0 0 4px rgba(74, 144, 194, 0.18),
+    0 8px 32px rgba(0, 0, 0, 0.4);
+}
+.avatar img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
 }
 
 .hero h1 {
-  font-size: clamp(1.6rem, 4vw, 2.2rem);
-  font-weight: 700;
+  font-size: clamp(1.7rem, 4vw, 2.3rem);
+  font-weight: 500;
   letter-spacing: -0.02em;
-  line-height: 1.2;
-  background: linear-gradient(135deg, #fff 30%, var(--accent2));
+  line-height: 1.15;
+  background: linear-gradient(135deg, var(--text-primary) 30%, var(--primary-soft));
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
-  margin-bottom: 16px;
+  margin-bottom: 8px;
+}
+
+.subtitle {
+  font-size: 0.9rem;
+  font-weight: 400;
+  color: var(--text-muted);
+  letter-spacing: 0.02em;
 }
 
 .hero p {
-  color: var(--muted);
-  font-size: 1rem;
+  color: var(--text-muted);
+  font-size: 0.95rem;
   line-height: 1.7;
-  max-width: 520px;
-  margin: 0 auto 28px;
+  max-width: 500px;
+  margin: 0 auto 8px;
 }
 
-.tags { display: flex; flex-wrap: wrap; gap: 8px; justify-content: center; }
+.tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  justify-content: center;
+}
 
 .tag {
-  font-size: 0.72rem;
+  font-size: 0.7rem;
   font-weight: 500;
   text-transform: uppercase;
   letter-spacing: 0.08em;
   padding: 4px 12px;
   border-radius: 100px;
-  border: 1px solid var(--glass-border);
-  color: var(--accent2);
-  background: rgba(108,99,255,0.08);
+  border: 1px solid rgba(74, 144, 194, 0.25);
+  color: var(--primary-base);
+  background: rgba(74, 144, 194, 0.08);
 }
 
-/* Section title */
+/* ── Section heading (Support My Work) ───────────────────────── */
+.section-heading {
+  font-size: clamp(1.15rem, 3vw, 1.45rem);
+  font-weight: 500;
+  color: var(--text-primary);
+  text-align: center;
+  margin-bottom: 6px;
+}
+
+/* ── Section label (CRYPTO WALLETS) ──────────────────────────── */
 .section-title {
-  font-size: 0.72rem;
-  font-weight: 600;
+  font-size: 0.7rem;
+  font-weight: 500;
   letter-spacing: 0.12em;
   text-transform: uppercase;
-  color: var(--muted);
-  margin-bottom: 20px;
+  color: var(--text-muted);
+  text-align: center;
+  margin-bottom: 24px;
 }
 
-/* Wallet cards */
-.wallets { display: grid; gap: 16px; }
+/* ── Wallet grid ─────────────────────────────────────────────── */
+.wallets {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 16px;
+}
+@media (max-width: 520px) {
+  .wallets {
+    grid-template-columns: 1fr;
+  }
+}
 
+/* ── Wallet card ─────────────────────────────────────────────── */
 .wallet-card {
-  background: var(--glass);
-  border: 1px solid var(--glass-border);
-  border-radius: 16px;
-  padding: 24px;
-  transition: border-color 0.2s, background 0.2s;
+  background: var(--bg-surface);
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  padding: 20px;
+  transition:
+    background 0.2s,
+    border-color 0.2s;
 }
 .wallet-card:hover {
-  background: rgba(255,255,255,0.06);
-  border-color: rgba(255,255,255,0.14);
+  background: var(--bg-elevated);
+  border-color: var(--primary-pressed);
 }
 
-.wallet-header { display: flex; align-items: center; gap: 12px; margin-bottom: 16px; }
+.wallet-header {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 14px;
+}
 
 .coin-icon {
-  width: 40px; height: 40px;
+  width: 38px;
+  height: 38px;
   border-radius: 50%;
-  display: flex; align-items: center; justify-content: center;
-  font-size: 18px; font-weight: 700;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 17px;
+  font-weight: 500;
   flex-shrink: 0;
 }
 
-.coin-name { font-weight: 600; font-size: 1rem; }
-.coin-sub  { font-size: 0.78rem; color: var(--muted); margin-top: 1px; }
+.coin-name {
+  font-weight: 500;
+  font-size: 0.95rem;
+}
+.coin-sub {
+  font-size: 0.75rem;
+  color: var(--text-muted);
+  margin-top: 1px;
+}
 
 .wallet-network {
   margin-left: auto;
-  font-size: 0.7rem; font-weight: 500;
-  text-transform: uppercase; letter-spacing: 0.07em;
-  padding: 3px 10px;
+  font-size: 0.65rem;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.07em;
+  padding: 3px 9px;
   border-radius: 100px;
   border: 1px solid;
   opacity: 0.7;
+  white-space: nowrap;
 }
 
-.address-row { display: flex; align-items: center; gap: 10px; }
+/* ── Address row ─────────────────────────────────────────────── */
+.address-row {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
 
 .address-text {
   flex: 1;
-  font-family: 'JetBrains Mono', monospace;
-  font-size: 0.78rem;
-  color: var(--muted);
-  overflow: hidden; text-overflow: ellipsis; white-space: nowrap;
-  background: rgba(0,0,0,0.25);
-  padding: 10px 14px;
-  border-radius: 10px;
-  border: 1px solid rgba(255,255,255,0.05);
+  font-family: "JetBrains Mono", monospace;
+  font-weight: 400;
+  font-size: 0.72rem;
+  color: var(--text-muted);
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  background: var(--bg-code);
+  padding: 9px 12px;
+  border-radius: 8px;
+  border: 1px solid var(--border);
   transition: color 0.15s;
 }
-.wallet-card:hover .address-text { color: var(--text); }
+.wallet-card:hover .address-text {
+  color: var(--text-body);
+}
 
 .copy-btn {
   flex-shrink: 0;
-  width: 40px; height: 40px;
-  border-radius: 10px;
-  border: 1px solid var(--glass-border);
-  background: rgba(255,255,255,0.04);
-  color: var(--muted);
+  width: 38px;
+  height: 38px;
+  border-radius: 8px;
+  border: 1px solid var(--border);
+  background: var(--bg-page);
+  color: var(--text-muted);
   cursor: pointer;
-  display: flex; align-items: center; justify-content: center;
-  transition: background 0.15s, color 0.15s, border-color 0.15s, transform 0.1s;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition:
+    background 0.15s,
+    color 0.15s,
+    border-color 0.15s,
+    transform 0.1s;
 }
 .copy-btn:hover {
-  background: rgba(255,255,255,0.1);
-  color: var(--text);
-  border-color: rgba(255,255,255,0.18);
+  background: var(--bg-elevated);
+  color: var(--text-primary);
+  border-color: var(--primary-pressed);
 }
-.copy-btn:active { transform: scale(0.92); }
+.copy-btn:focus-visible {
+  outline: 2px solid var(--accent-base);
+  outline-offset: 2px;
+}
+.copy-btn:active {
+  transform: scale(0.92);
+}
 .copy-btn.copied {
-  background: rgba(52,211,153,0.15);
+  background: rgba(63, 185, 80, 0.12);
   color: var(--success);
-  border-color: rgba(52,211,153,0.35);
+  border-color: rgba(63, 185, 80, 0.4);
 }
 
-.qr-toggle {
-  display: flex; align-items: center; gap: 6px;
-  background: none; border: none;
-  color: var(--muted);
-  font-size: 0.75rem; font-family: 'Inter', sans-serif; font-weight: 500;
-  cursor: pointer; padding: 6px 0; margin-top: 12px;
-  transition: color 0.15s;
+/* ── Coin accent colors ───────────────────────────────────────── */
+.btc .coin-icon {
+  background: rgba(247, 147, 26, 0.12);
+  color: var(--btc);
 }
-.qr-toggle:hover { color: var(--accent2); }
-.qr-chevron { transition: transform 0.2s; display: flex; }
-.qr-toggle.open .qr-chevron { transform: rotate(180deg); }
+.btc .coin-name {
+  color: var(--btc);
+}
+.btc .wallet-network {
+  color: var(--btc);
+  border-color: var(--btc);
+}
 
-.qr-panel { display: none; padding-top: 16px; justify-content: center; }
-.qr-panel.open { display: flex; }
-.qr-panel canvas,
-.qr-panel img { border-radius: 12px; background: #fff; padding: 8px; }
+.eth .coin-icon {
+  background: rgba(98, 126, 234, 0.12);
+  color: var(--eth);
+}
+.eth .coin-name {
+  color: var(--eth);
+}
+.eth .wallet-network {
+  color: var(--eth);
+  border-color: var(--eth);
+}
 
-/* Coin accent colors */
-.btc .coin-icon { background: rgba(247,147,26,0.15); color: var(--btc); }
-.btc .coin-name { color: var(--btc); }
-.btc .wallet-network { color: var(--btc); border-color: var(--btc); }
+.usdt .coin-icon {
+  background: rgba(38, 161, 123, 0.12);
+  color: var(--usdt);
+}
+.usdt .coin-name {
+  color: var(--usdt);
+}
+.usdt .wallet-network {
+  color: var(--usdt);
+  border-color: var(--usdt);
+}
 
-.eth .coin-icon { background: rgba(98,126,234,0.15); color: var(--eth); }
-.eth .coin-name { color: var(--eth); }
-.eth .wallet-network { color: var(--eth); border-color: var(--eth); }
+.usdc .coin-icon {
+  background: rgba(39, 117, 202, 0.12);
+  color: var(--usdc);
+}
+.usdc .coin-name {
+  color: var(--usdc);
+}
+.usdc .wallet-network {
+  color: var(--usdc);
+  border-color: var(--usdc);
+}
 
-.usdt .coin-icon { background: rgba(38,161,123,0.15); color: var(--usdt); }
-.usdt .coin-name { color: var(--usdt); }
-.usdt .wallet-network { color: var(--usdt); border-color: var(--usdt); }
-
-.usdc .coin-icon { background: rgba(39,117,202,0.15); color: var(--usdc); }
-.usdc .coin-name { color: var(--usdc); }
-.usdc .wallet-network { color: var(--usdc); border-color: var(--usdc); }
-
-/* Footer */
+/* ── Footer ──────────────────────────────────────────────────── */
 footer {
   text-align: center;
-  color: var(--muted);
-  font-size: 0.8rem;
-  margin-top: 64px;
+  color: var(--text-muted);
+  font-size: 0.78rem;
+  margin-top: 56px;
   line-height: 1.7;
 }
 
-/* Toast */
+/* ── Toast ───────────────────────────────────────────────────── */
 .toast {
   position: fixed;
-  bottom: 32px; left: 50%;
-  transform: translateX(-50%) translateY(20px);
-  background: var(--surface);
-  border: 1px solid rgba(52,211,153,0.4);
+  bottom: 32px;
+  left: 50%;
+  transform: translateX(-50%) translateY(16px);
+  background: var(--bg-surface);
+  border: 1px solid rgba(63, 185, 80, 0.4);
   color: var(--success);
-  font-size: 0.85rem; font-weight: 500;
-  padding: 12px 24px;
+  font-size: 0.82rem;
+  font-weight: 500;
+  padding: 11px 22px;
   border-radius: 100px;
   pointer-events: none;
   opacity: 0;
-  transition: opacity 0.22s, transform 0.22s;
+  transition:
+    opacity 0.22s,
+    transform 0.22s;
   z-index: 100;
   white-space: nowrap;
-  box-shadow: 0 8px 32px rgba(0,0,0,0.5);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.5);
 }
 .toast.show {
   opacity: 1;
   transform: translateX(-50%) translateY(0);
 }
 
+/* ── Responsive ──────────────────────────────────────────────── */
 @media (max-width: 480px) {
-  .page { padding: 48px 16px 80px; }
-  .address-text { font-size: 0.7rem; }
+  .page {
+    padding: 48px 16px 80px;
+  }
+  .wallet-card {
+    padding: 16px;
+  }
 }
