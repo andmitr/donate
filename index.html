@@ -8,6 +8,13 @@
       name="description"
       content="Software Engineer with 6+ years of experience in Backend, Frontend, Linux, Technical writing, and SEO. Support my work with a crypto donation."
     />
+
+    <link rel="preload" href="styles.css" as="style" />
+    <link rel="preload" href="fonts/sf.woff2" as="font" type="font/woff2" crossorigin />
+    <link rel="preload" href="fonts/sf-med.woff2" as="font" type="font/woff2" crossorigin />
+    <link rel="preload" href="fonts/jbm.woff2" as="font" type="font/woff2" crossorigin />
+    <link rel="preload" href="avatar.png" as="image" />
+
     <link rel="stylesheet" href="styles.css" />
   </head>
   <body>
@@ -68,14 +75,14 @@
             <div class="wallet-header">
               <div class="coin-icon" aria-hidden="true">Ξ</div>
               <div>
-                <div class="coin-name">ETH</div>
-                <div class="coin-sub">Ethereum</div>
+                <div class="coin-name">ETH / USDT / USDC</div>
+                <div class="coin-sub">Ethereum, Tether, USD Coin</div>
               </div>
               <span class="wallet-network">ERC-20</span>
             </div>
             <div class="address-row">
               <span class="address-text">0x54f0ccc6b2987de454f69f2814fc9202bcfb74fe</span>
-              <button class="copy-btn" aria-label="Copy ETH address">
+              <button class="copy-btn" aria-label="Copy ETH, USDT, USDC address">
                 <svg
                   width="15"
                   height="15"
@@ -93,18 +100,18 @@
             </div>
           </article>
 
-          <article class="wallet-card usdt">
+          <article class="wallet-card trx">
             <div class="wallet-header">
-              <div class="coin-icon" aria-hidden="true">₮</div>
+              <div class="coin-icon" aria-hidden="true">T</div>
               <div>
-                <div class="coin-name">USDT</div>
-                <div class="coin-sub">Tether</div>
+                <div class="coin-name">TRX</div>
+                <div class="coin-sub">TRON</div>
               </div>
-              <span class="wallet-network">TRC-20</span>
+              <span class="wallet-network">TRON</span>
             </div>
             <div class="address-row">
-              <span class="address-text">0x54f0ccc6b2987de454f69f2814fc9202bcfb74fe</span>
-              <button class="copy-btn" aria-label="Copy USDT address">
+              <span class="address-text">YOUR_TRON_ADDRESS_HERE</span>
+              <button class="copy-btn" aria-label="Copy TRX address">
                 <svg
                   width="15"
                   height="15"
@@ -122,18 +129,47 @@
             </div>
           </article>
 
-          <article class="wallet-card usdc">
+          <article class="wallet-card doge">
             <div class="wallet-header">
-              <div class="coin-icon" aria-hidden="true">$</div>
+              <div class="coin-icon" aria-hidden="true">Ð</div>
               <div>
-                <div class="coin-name">USDC</div>
-                <div class="coin-sub">USD Coin</div>
+                <div class="coin-name">DOGE</div>
+                <div class="coin-sub">Dogecoin</div>
               </div>
-              <span class="wallet-network">ERC-20</span>
+              <span class="wallet-network">Dogecoin</span>
             </div>
             <div class="address-row">
-              <span class="address-text">0x54f0ccc6b2987de454f69f2814fc9202bcfb74fe</span>
-              <button class="copy-btn" aria-label="Copy USDC address">
+              <span class="address-text">YOUR_DOGECOIN_ADDRESS_HERE</span>
+              <button class="copy-btn" aria-label="Copy DOGE address">
+                <svg
+                  width="15"
+                  height="15"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                >
+                  <rect x="9" y="9" width="13" height="13" rx="2" ry="2" />
+                  <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1" />
+                </svg>
+              </button>
+            </div>
+          </article>
+
+          <article class="wallet-card xmr">
+            <div class="wallet-header">
+              <div class="coin-icon" aria-hidden="true">ɱ</div>
+              <div>
+                <div class="coin-name">XMR</div>
+                <div class="coin-sub">Monero</div>
+              </div>
+              <span class="wallet-network">Monero</span>
+            </div>
+            <div class="address-row">
+              <span class="address-text">YOUR_MONERO_ADDRESS_HERE</span>
+              <button class="copy-btn" aria-label="Copy XMR address">
                 <svg
                   width="15"
                   height="15"
