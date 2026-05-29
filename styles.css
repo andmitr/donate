@@ -1,0 +1,602 @@
+/* ── Fonts ───────────────────────────────────────────────────── */
+@font-face {
+  font-family: "sf";
+  src: url("fonts/sf.woff2") format("woff2");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "sf";
+  src: url("fonts/sf-med.woff2") format("woff2");
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "JetBrains Mono";
+  src: url("fonts/jbm.woff2") format("woff2");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* ── Reset ───────────────────────────────────────────────────── */
+html,
+body,
+div,
+span,
+applet,
+object,
+iframe,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+blockquote,
+pre,
+a,
+abbr,
+acronym,
+address,
+big,
+cite,
+code,
+del,
+dfn,
+em,
+img,
+ins,
+kbd,
+q,
+s,
+samp,
+small,
+strike,
+strong,
+sub,
+sup,
+tt,
+var,
+b,
+u,
+i,
+center,
+dl,
+dt,
+dd,
+ol,
+ul,
+li,
+fieldset,
+form,
+label,
+legend,
+table,
+caption,
+tbody,
+tfoot,
+thead,
+tr,
+th,
+td,
+article,
+aside,
+canvas,
+details,
+embed,
+figure,
+figcaption,
+footer,
+header,
+hgroup,
+menu,
+nav,
+output,
+ruby,
+section,
+summary,
+time,
+mark,
+audio,
+video,
+dialog {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  vertical-align: baseline;
+}
+
+/* HTML5 display-role reset for older browsers */
+article,
+aside,
+details,
+figcaption,
+figure,
+footer,
+header,
+hgroup,
+menu,
+nav,
+section {
+  display: block;
+}
+
+ol,
+ul {
+  list-style: none;
+}
+
+blockquote,
+q {
+  quotes: none;
+}
+
+blockquote::before,
+blockquote::after,
+q::before,
+q::after {
+  content: none;
+}
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+body {
+  /* Add accessible line-height */
+  line-height: 1.3;
+}
+
+img,
+picture,
+video,
+canvas,
+svg {
+  display: block;
+  max-width: 100%;
+}
+
+/* Inherit fonts for form controls */
+input,
+button,
+textarea,
+select {
+  font: inherit;
+}
+
+/* Avoid text overflows */
+p,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  overflow-wrap: break-word;
+}
+
+/* Improve line wrapping */
+p {
+  text-wrap: balance;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  text-wrap: pretty;
+}
+
+/* ── Brand tokens (design-tokens.json) ───────────────────────── */
+:root {
+  --bg-page: #0f1722;
+  --bg-surface: #1a2433;
+  --bg-elevated: #25324a;
+  --bg-code: #0b1018;
+  --text-primary: #f2f6fb;
+  --text-body: #cfe0f0;
+  --text-muted: #7a8ba3;
+  --border: #3a4a5f;
+  --primary-soft: #a8c5e0;
+  --primary-base: #4a90c2;
+  --primary-pressed: #2e5c82;
+  --accent-base: #e6522c;
+  --success: #3fb950;
+  /* crypto coin brand colors */
+  --btc: #f7931a;
+  --eth: #627eea;
+  --trx: #ff060a;
+  --doge: #c2a633;
+}
+
+/* ── Base ────────────────────────────────────────────────────── */
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: "sf", sans-serif;
+  font-weight: 400;
+  background: var(--bg-page);
+  color: var(--text-body);
+  min-height: 100vh;
+  overflow-x: hidden;
+}
+
+/* ── Background orbs ─────────────────────────────────────────── */
+.bg-orbs {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 0;
+}
+.bg-orbs::before,
+.bg-orbs::after {
+  content: "";
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(130px);
+}
+.bg-orbs::before {
+  width: 600px;
+  height: 600px;
+  background: var(--primary-base);
+  opacity: 0.1;
+  top: -220px;
+  left: -180px;
+  animation: drift 18s ease-in-out infinite alternate;
+}
+.bg-orbs::after {
+  width: 500px;
+  height: 500px;
+  background: var(--primary-pressed);
+  opacity: 0.12;
+  bottom: -160px;
+  right: -160px;
+  animation: drift 24s ease-in-out infinite alternate-reverse;
+}
+@keyframes drift {
+  from {
+    transform: translate(0, 0) scale(1);
+  }
+  to {
+    transform: translate(60px, 40px) scale(1.1);
+  }
+}
+
+/* ── Layout ──────────────────────────────────────────────────── */
+.page {
+  position: relative;
+  z-index: 1;
+  max-width: 720px;
+  margin: 0 auto;
+  padding: 64px 24px 96px;
+}
+
+/* ── Hero ────────────────────────────────────────────────────── */
+.hero {
+  text-align: center;
+  margin-bottom: 24px;
+}
+
+.avatar {
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  overflow: hidden;
+  margin: 0 auto 8px;
+  border: 2px solid var(--border);
+  box-shadow:
+    0 0 0 4px rgba(74, 144, 194, 0.18),
+    0 8px 32px rgba(0, 0, 0, 0.4);
+}
+.avatar img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.hero h1 {
+  font-size: clamp(1.7rem, 4vw, 2.3rem);
+  font-weight: 500;
+  letter-spacing: -0.02em;
+  line-height: 1.15;
+  background: linear-gradient(135deg, var(--text-primary) 30%, var(--primary-soft));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  margin-bottom: 8px;
+}
+
+.subtitle {
+  font-size: 0.9rem;
+  font-weight: 400;
+  color: var(--text-muted);
+  letter-spacing: 0.02em;
+}
+
+.hero p {
+  color: var(--text-muted);
+  font-size: 0.95rem;
+  line-height: 1.7;
+  max-width: 500px;
+  margin: 0 auto 8px;
+}
+
+.tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  justify-content: center;
+}
+
+.tag {
+  font-size: 0.7rem;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  padding: 4px 12px;
+  border-radius: 100px;
+  border: 1px solid rgba(74, 144, 194, 0.25);
+  color: var(--primary-base);
+  background: rgba(74, 144, 194, 0.08);
+}
+
+/* ── Section heading (Support My Work) ───────────────────────── */
+.section-heading {
+  font-size: clamp(1.15rem, 3vw, 1.45rem);
+  font-weight: 500;
+  color: var(--text-primary);
+  text-align: center;
+  margin-bottom: 6px;
+}
+
+/* ── Section label (CRYPTO WALLETS) ──────────────────────────── */
+.section-title {
+  font-size: 0.7rem;
+  font-weight: 500;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+  text-align: center;
+  margin-bottom: 24px;
+}
+
+/* ── Wallet grid ─────────────────────────────────────────────── */
+.wallets {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 16px;
+}
+@media (max-width: 520px) {
+  .wallets {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* ── Wallet card ─────────────────────────────────────────────── */
+.wallet-card {
+  background: var(--bg-surface);
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  padding: 20px;
+  transition:
+    background 0.2s,
+    border-color 0.2s;
+}
+.wallet-card:hover {
+  background: var(--bg-elevated);
+  border-color: var(--primary-pressed);
+}
+
+.wallet-header {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 14px;
+}
+
+.coin-icon {
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 17px;
+  font-weight: 500;
+  flex-shrink: 0;
+}
+
+.coin-name {
+  font-weight: 500;
+  font-size: 0.95rem;
+}
+.coin-sub {
+  font-size: 0.75rem;
+  color: var(--text-muted);
+  margin-top: 1px;
+}
+
+.wallet-network {
+  margin-left: auto;
+  font-size: 0.65rem;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.07em;
+  padding: 3px 9px;
+  border-radius: 100px;
+  border: 1px solid;
+  opacity: 0.7;
+  white-space: nowrap;
+}
+
+/* ── Address row ─────────────────────────────────────────────── */
+.address-row {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.address-text {
+  flex: 1;
+  font-family: "JetBrains Mono", monospace;
+  font-weight: 400;
+  font-size: 0.72rem;
+  color: var(--text-muted);
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  background: var(--bg-code);
+  padding: 9px 12px;
+  border-radius: 8px;
+  border: 1px solid var(--border);
+  transition: color 0.15s;
+}
+.wallet-card:hover .address-text {
+  color: var(--text-body);
+}
+
+.copy-btn {
+  flex-shrink: 0;
+  width: 38px;
+  height: 38px;
+  border-radius: 8px;
+  border: 1px solid var(--border);
+  background: var(--bg-page);
+  color: var(--text-muted);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition:
+    background 0.15s,
+    color 0.15s,
+    border-color 0.15s,
+    transform 0.1s;
+}
+.copy-btn:hover {
+  background: var(--bg-elevated);
+  color: var(--text-primary);
+  border-color: var(--primary-pressed);
+}
+.copy-btn:focus-visible {
+  outline: 2px solid var(--accent-base);
+  outline-offset: 2px;
+}
+.copy-btn:active {
+  transform: scale(0.92);
+}
+.copy-btn.copied {
+  background: rgba(63, 185, 80, 0.12);
+  color: var(--success);
+  border-color: rgba(63, 185, 80, 0.4);
+}
+
+/* ── Coin accent colors ───────────────────────────────────────── */
+.btc .coin-icon {
+  background: rgba(247, 147, 26, 0.12);
+  color: var(--btc);
+}
+.btc .coin-name {
+  color: var(--btc);
+}
+.btc .wallet-network {
+  color: var(--btc);
+  border-color: var(--btc);
+}
+
+.eth .coin-icon {
+  background: rgba(98, 126, 234, 0.12);
+  color: var(--eth);
+}
+.eth .coin-name {
+  color: var(--eth);
+}
+.eth .wallet-network {
+  color: var(--eth);
+  border-color: var(--eth);
+}
+
+.trx .coin-icon {
+  background: rgba(255, 6, 10, 0.12);
+  color: var(--trx);
+}
+.trx .coin-name {
+  color: var(--trx);
+}
+.trx .wallet-network {
+  color: var(--trx);
+  border-color: var(--trx);
+}
+
+.doge .coin-icon {
+  background: rgba(194, 166, 51, 0.12);
+  color: var(--doge);
+}
+.doge .coin-name {
+  color: var(--doge);
+}
+.doge .wallet-network {
+  color: var(--doge);
+  border-color: var(--doge);
+}
+
+/* ── Footer ──────────────────────────────────────────────────── */
+footer {
+  text-align: center;
+  color: var(--text-muted);
+  font-size: 0.78rem;
+  margin-top: 56px;
+  line-height: 1.7;
+}
+
+/* ── Toast ───────────────────────────────────────────────────── */
+.toast {
+  position: fixed;
+  bottom: 32px;
+  left: 50%;
+  transform: translateX(-50%) translateY(16px);
+  background: var(--bg-surface);
+  border: 1px solid rgba(63, 185, 80, 0.4);
+  color: var(--success);
+  font-size: 0.82rem;
+  font-weight: 500;
+  padding: 11px 22px;
+  border-radius: 100px;
+  pointer-events: none;
+  opacity: 0;
+  transition:
+    opacity 0.22s,
+    transform 0.22s;
+  z-index: 100;
+  white-space: nowrap;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.5);
+}
+.toast.show {
+  opacity: 1;
+  transform: translateX(-50%) translateY(0);
+}
+
+/* ── Responsive ──────────────────────────────────────────────── */
+@media (max-width: 480px) {
+  .page {
+    padding: 48px 16px 80px;
+  }
+  .wallet-card {
+    padding: 16px;
+  }
+}
