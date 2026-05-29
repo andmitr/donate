@@ -1,0 +1,111 @@
+{
+  "$schema": "https://www.designtokens.org/schemas/2025.10/format.json",
+  "$description": "Andrew Dmitriev | Personal brand design system. Dark-first UI, cool steel-blue core with a warm orange signal accent. Always follow each token when generating UI.",
+  "$extensions": {
+    "io.andrewdmitriev.brand": {
+      "rules": {
+        "theme":       "Dark-first. Never use pure white backgrounds.",
+        "accentUsage": "Only ONE accent.base element per visible screen section.",
+        "links":       "Use color.primary.base for links, NEVER color.accent.base.",
+        "focusRing":   "2px color.accent.base outline with 2px offset on all focusable elements.",
+        "contrast":    "All text must meet WCAG AA. On color.bg.page use color.text.body or lighter.",
+        "palette":     "Maximum 3 hues per screen: neutrals + primary + one accent. Do not introduce colors outside this file.",
+        "gradients":   "Allowed only: bg.page → bg.surface, or primary.soft → text.primary (for hero text)."
+      }
+    }
+  },
+
+  "color": {
+    "$type": "color",
+
+    "bg": {
+      "page": {
+        "$value": { "colorSpace": "srgb", "components": [0.059, 0.090, 0.133], "hex": "#0F1722" },
+        "$description": "Default page background. Dark navy. Use as the base of every screen."
+      },
+      "surface": {
+        "$value": { "colorSpace": "srgb", "components": [0.102, 0.141, 0.200], "hex": "#1A2433" },
+        "$description": "Cards, panels, modals on top of the page."
+      },
+      "elevated": {
+        "$value": { "colorSpace": "srgb", "components": [0.145, 0.196, 0.290], "hex": "#25324A" },
+        "$description": "Hover state and elevated surfaces (popovers, dropdowns)."
+      },
+      "code": {
+        "$value": { "colorSpace": "srgb", "components": [0.043, 0.063, 0.094], "hex": "#0B1018" },
+        "$description": "Background for code blocks and terminals."
+      }
+    },
+
+    "text": {
+      "primary": {
+        "$value": { "colorSpace": "srgb", "components": [0.949, 0.965, 0.984], "hex": "#F2F6FB" },
+        "$description": "Headings and highest-contrast text."
+      },
+      "body": {
+        "$value": { "colorSpace": "srgb", "components": [0.812, 0.878, 0.941], "hex": "#CFE0F0" },
+        "$description": "Default body text on dark backgrounds."
+      },
+      "muted": {
+        "$value": { "colorSpace": "srgb", "components": [0.478, 0.545, 0.639], "hex": "#7A8BA3" },
+        "$description": "Secondary text, captions, placeholders."
+      },
+      "onAccent": {
+        "$value": { "colorSpace": "srgb", "components": [0.059, 0.090, 0.133], "hex": "#0F1722" },
+        "$description": "Text placed on top of accent.* colors."
+      }
+    },
+
+    "border": {
+      "default": {
+        "$value": { "colorSpace": "srgb", "components": [0.227, 0.290, 0.373], "hex": "#3A4A5F" },
+        "$description": "Default 1px borders and dividers."
+      }
+    },
+
+    "primary": {
+      "soft": {
+        "$value": { "colorSpace": "srgb", "components": [0.659, 0.773, 0.878], "hex": "#A8C5E0" },
+        "$description": "Soft brand highlight, used in gradients and hero text."
+      },
+      "base": {
+        "$value": { "colorSpace": "srgb", "components": [0.290, 0.565, 0.761], "hex": "#4A90C2" },
+        "$description": "Primary brand color. Use for links and primary buttons."
+      },
+      "pressed": {
+        "$value": { "colorSpace": "srgb", "components": [0.180, 0.361, 0.510], "hex": "#2E5C82" },
+        "$description": "Active/pressed state of primary actions."
+      }
+    },
+
+    "accent": {
+      "base": {
+        "$value": { "colorSpace": "srgb", "components": [0.902, 0.322, 0.173], "hex": "#E6522C" },
+        "$description": "Signal orange. Reserved for the SINGLE most important CTA on a screen and for focus rings. Do not use for ordinary links."
+      },
+      "hover": {
+        "$value": { "colorSpace": "srgb", "components": [0.949, 0.522, 0.369], "hex": "#F2855E" },
+        "$description": "Hover state of accent.base."
+      }
+    },
+
+    "status": {
+      "success": {
+        "$value": { "colorSpace": "srgb", "components": [0.247, 0.725, 0.314], "hex": "#3FB950" },
+        "$description": "Success states."
+      },
+      "warning": {
+        "$value": { "colorSpace": "srgb", "components": [0.824, 0.600, 0.133], "hex": "#D29922" },
+        "$description": "Warnings."
+      },
+      "danger": {
+        "$value": { "colorSpace": "srgb", "components": [0.973, 0.318, 0.286], "hex": "#F85149" },
+        "$description": "Errors and destructive actions."
+      },
+      "info": {
+        "$value": { "colorSpace": "srgb", "components": [0.000, 0.678, 0.847], "hex": "#00ADD8" },
+        "$description": "Informational states (Go-blue nod to the engineering identity)."
+      }
+    }
+  }
+}
