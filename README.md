@@ -19,7 +19,7 @@ Live: https://andmitr.github.io/donate/
 ├── scripts.js               # Copy-to-clipboard + toast
 ├── avatar.png               # Hero avatar
 ├── fonts/                   # Self-hosted woff2 fonts
-└── .github/workflows/       # Pages deploy and release workflows
+└── .github/workflows/       # Release workflow
 ```
 
 ## Local preview
@@ -30,10 +30,13 @@ python3 -m http.server 8000
 
 Open `http://localhost:8000`.
 
+## Deployment
+
+GitHub Pages is configured to deploy directly from the `main` branch (Settings -> Pages -> Source: Deploy from a branch). Every push to `main` is published to https://andmitr.github.io/donate/ automatically.
+
 ## CI
 
-- `.github/workflows/pages.yml` — deploys the repo root to GitHub Pages on every push to `main`.
-- `.github/workflows/release.yml` — publishes a GitHub Release with auto-generated notes on every `v*` tag push.
+- `.github/workflows/release.yml` - publishes a GitHub Release with auto-generated notes on every `v*` tag push.
 
 ## Release
 
