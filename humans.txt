@@ -1,0 +1,13 @@
+/* TEAM */
+	Chef: Andrew Dmitriev
+	Contact: andrew.dmitriev.work@gmail.com
+	Twitter: @Andrew_Dmitriev
+
+/* THANKS */
+  Thanks to Mom, Dad, and Arch Linux.
+
+/* SITE */
+	Last update: 2026/30/05
+	Language: English
+	Doctype: HTML5
+	Tools: Zed editor, Figma / Figma make, Devin agent

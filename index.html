@@ -3,10 +3,10 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Donate | Andrew Dmitriev | Support My Work</title>
+    <title>Andrew Dmitriev's Donation Page</title>
     <meta
       name="description"
-      content="Software Engineer with 6+ years of experience in Backend, Frontend, Linux, Technical writing, and SEO. Support my work with a crypto donation."
+      content="Support Andrew Dmitriev's projects with cryptocurrency donations. Fast, secure, and anonymous crypto contributions via Bitcoin, Ethereum, Tron, and Dogecoin."
     />
 
     <link rel="preload" href="styles.css" as="style" />
@@ -15,7 +15,49 @@
     <link rel="preload" href="fonts/jbm.woff2" as="font" type="font/woff2" crossorigin />
     <link rel="preload" href="avatar.png" as="image" />
 
+    <script src="scripts.js" defer></script>
+
+    <link rel="icon" href="favicon.ico" type="image/x-icon" />
+    <link rel="icon" href="favicon-16x16.png" sizes="16x16" type="image/png" />
+    <link rel="icon" href="favicon-32x32.png" sizes="32x32" type="image/png" />
+    <link rel="icon" href="favicon-48x48.png" sizes="48x48" type="image/png" />
+    <link rel="apple-touch-icon" href="apple-touch-icon.png" type="image/png" />
+
     <link rel="stylesheet" href="styles.css" />
+
+    <link rel="canonical" href="https://andmitr.github.io/donate" />
+    <link rel="manifest" href="manifest.webmanifest" />
+    <link rel="author" href="humans.txt" />
+
+    <meta name="theme-color" content="#1A2433" />
+    <meta name="msapplication-TileColor" content="#4A90C2" />
+    <meta name="msapplication-navbutton-color" content="#1A2433" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+    <meta name="apple-mobile-web-app-title" content="Andrew Dmitriev's Donation Page" />
+
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="Andrew Dmitriev's Donation Page" />
+    <meta property="og:site_name" content="Andrew Dmitriev" />
+    <meta
+      property="og:description"
+      content="Support Andrew Dmitriev's projects with cryptocurrency donations. Fast, secure, and anonymous crypto contributions via Bitcoin, Ethereum, Tron, and Dogecoin."
+    />
+    <meta property="og:url" content="https://andmitr.github.io/donate" />
+    <meta property="og:image" content="https://andmitr.github.io/donate/soc-preview.png" />
+    <meta property="og:image:type" content="image/png" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Andrew Dmitriev's Donation Page" />
+    <meta
+      name="twitter:description"
+      content="Support Andrew Dmitriev's projects with cryptocurrency donations. Fast, secure, and anonymous crypto contributions via Bitcoin, Ethereum, Tron, and Dogecoin."
+    />
+    <meta name="twitter:site" content="@Andrew_Dmitriev" />
+    <meta name="twitter:creator" content="@Andrew_Dmitriev" />
+    <meta name="twitter:url" content="https://andmitr.github.io/donate" />
+    <meta name="twitter:image" content="https://andmitr.github.io/donate/soc-preview.png" />
   </head>
   <body>
     <div class="bg-orbs" aria-hidden="true"></div>
@@ -160,13 +202,16 @@
         </div>
       </section>
 
+      <p class="notification">Transactions are irreversible, please double-check the address before sending.</p>
+
       <footer>
-        <p>Transactions are irreversible, please double-check the address before sending.</p>
+        <p><span data-copyright>&copy;</span> Andrew Dmitriev. All rights reserved.</p>
+        <a href="humans.txt" target="_blank">
+          <img class="humanstxt-logo" src="humanstxt.jpg" alt="project humanstxt.org logo" />
+        </a>
       </footer>
     </div>
 
     <div class="toast" id="toast" role="status" aria-live="polite"></div>
-
-    <script src="scripts.js"></script>
   </body>
 </html>

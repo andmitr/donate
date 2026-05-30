@@ -555,15 +555,25 @@ body {
   border-color: var(--doge);
 }
 
+.notification {
+  text-align: center;
+  color: var(--text-muted);
+  margin-top: 24px;
+  font-size: 0.95rem;
+}
 /* ── Footer ──────────────────────────────────────────────────── */
 footer {
-  text-align: center;
   color: var(--text-muted);
   font-size: 0.78rem;
   margin-top: 56px;
   line-height: 1.7;
 }
 
+.humanstxt-logo {
+  display: inline-flex;
+  border: 1px solid var(--border);
+  border-radius: 4px;
+}
 /* ── Toast ───────────────────────────────────────────────────── */
 .toast {
   position: fixed;
