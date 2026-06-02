@@ -225,6 +225,7 @@ h6 {
 /* ── Base ────────────────────────────────────────────────────── */
 html {
   scroll-behavior: smooth;
+  max-height: 100vh;
 }
 
 body {
@@ -232,7 +233,7 @@ body {
   font-weight: 400;
   background: var(--bg-page);
   color: var(--text-body);
-  min-height: 100vh;
+  max-height: 100vh;
   overflow-x: hidden;
 }
 
@@ -279,11 +280,16 @@ body {
 
 /* ── Layout ──────────────────────────────────────────────────── */
 .page {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 100vh;
+  align-items: center;
   position: relative;
   z-index: 1;
-  max-width: 1024px;
   margin: 0 auto;
-  padding: 64px 24px 96px;
+  padding: 24px 0;
+  max-width: 1024px;
 }
 
 /* ── Hero ────────────────────────────────────────────────────── */
@@ -318,7 +324,6 @@ body {
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
-  margin-bottom: 8px;
 }
 
 .subtitle {
@@ -563,6 +568,7 @@ body {
 }
 /* ── Footer ──────────────────────────────────────────────────── */
 footer {
+  align-self: flex-start;
   color: var(--text-muted);
   font-size: 0.78rem;
   margin-top: 56px;
