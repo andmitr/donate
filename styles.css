@@ -225,7 +225,6 @@ h6 {
 /* ── Base ────────────────────────────────────────────────────── */
 html {
   scroll-behavior: smooth;
-  max-height: 100vh;
 }
 
 body {
@@ -233,7 +232,6 @@ body {
   font-weight: 400;
   background: var(--bg-page);
   color: var(--text-body);
-  max-height: 100vh;
   overflow-x: hidden;
 }
 
@@ -283,7 +281,7 @@ body {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  height: 100vh;
+  min-height: 100vh;
   align-items: center;
   position: relative;
   z-index: 1;
