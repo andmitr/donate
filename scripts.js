@@ -31,7 +31,9 @@ function fallbackCopy(text, cb) {
   try {
     document.execCommand("copy");
     cb();
-  } catch (e) {}
+  } catch (e) {
+    showToast("Failed to copy");
+  }
   document.body.removeChild(ta);
 }
 
