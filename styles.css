@@ -22,131 +22,6 @@
 }
 
 /* ── Reset ───────────────────────────────────────────────────── */
-html,
-body,
-div,
-span,
-applet,
-object,
-iframe,
-h1,
-h2,
-h3,
-h4,
-h5,
-h6,
-p,
-blockquote,
-pre,
-a,
-abbr,
-acronym,
-address,
-big,
-cite,
-code,
-del,
-dfn,
-em,
-img,
-ins,
-kbd,
-q,
-s,
-samp,
-small,
-strike,
-strong,
-sub,
-sup,
-tt,
-var,
-b,
-u,
-i,
-center,
-dl,
-dt,
-dd,
-ol,
-ul,
-li,
-fieldset,
-form,
-label,
-legend,
-table,
-caption,
-tbody,
-tfoot,
-thead,
-tr,
-th,
-td,
-article,
-aside,
-canvas,
-details,
-embed,
-figure,
-figcaption,
-footer,
-header,
-hgroup,
-menu,
-nav,
-output,
-ruby,
-section,
-summary,
-time,
-mark,
-audio,
-video,
-dialog {
-  margin: 0;
-  padding: 0;
-  border: 0;
-  vertical-align: baseline;
-}
-
-/* HTML5 display-role reset for older browsers */
-article,
-aside,
-details,
-figcaption,
-figure,
-footer,
-header,
-hgroup,
-menu,
-nav,
-section {
-  display: block;
-}
-
-ol,
-ul {
-  list-style: none;
-}
-
-blockquote,
-q {
-  quotes: none;
-}
-
-blockquote::before,
-blockquote::after,
-q::before,
-q::after {
-  content: none;
-}
-
-table {
-  border-collapse: collapse;
-  border-spacing: 0;
-}
-
 *,
 *::before,
 *::after {
@@ -186,11 +61,6 @@ h6 {
   overflow-wrap: break-word;
 }
 
-/* Improve line wrapping */
-p {
-  text-wrap: balance;
-}
-
 h1,
 h2,
 h3,
@@ -198,6 +68,19 @@ h4,
 h5,
 h6 {
   text-wrap: pretty;
+}
+
+/* Visually hidden but accessible */
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
 }
 
 /* ── Brand tokens (design-tokens.json) ───────────────────────── */
@@ -275,6 +158,12 @@ body {
     transform: translate(60px, 40px) scale(1.1);
   }
 }
+@media (prefers-reduced-motion: reduce) {
+  .bg-orbs::before,
+  .bg-orbs::after {
+    animation: none;
+  }
+}
 
 /* ── Layout ──────────────────────────────────────────────────── */
 .page {
@@ -329,6 +218,7 @@ body {
   font-weight: 400;
   color: var(--text-muted);
   letter-spacing: 0.02em;
+  text-wrap: balance;
 }
 
 .hero p {
@@ -365,6 +255,7 @@ body {
   color: var(--text-primary);
   text-align: center;
   margin-bottom: 6px;
+  text-wrap: balance;
 }
 
 /* ── Section label (CRYPTO WALLETS) ──────────────────────────── */
@@ -563,7 +454,9 @@ body {
   color: var(--text-muted);
   margin-top: 24px;
   font-size: 0.95rem;
+  text-wrap: balance;
 }
+
 /* ── Footer ──────────────────────────────────────────────────── */
 footer {
   align-self: flex-start;
@@ -578,6 +471,7 @@ footer {
   border: 1px solid var(--border);
   border-radius: 4px;
 }
+
 /* ── Toast ───────────────────────────────────────────────────── */
 .toast {
   position: fixed;
